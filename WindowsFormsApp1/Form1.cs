@@ -146,26 +146,19 @@ namespace WindowsFormsApp1
         //Monitoring 
         private void COM1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            Thread.Sleep(500);  // important
+            Thread.Sleep(100);  // important
             string from_bs_1_t = COM1.ReadExisting();
             showdata(from_bs_1_t);
         }
         private void COM2_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            Thread.Sleep(500);  // important
+            Thread.Sleep(100);  // important
            string from_bs_2_t = COM2.ReadExisting();         
            showdata_2(from_bs_2_t);
         }
         private void showdata(string from_bs_1_t)
-        {
-
-       //     FileStream fss = new FileStream(path_ch1_others, FileMode.Append, FileAccess.Write);
-       //     StreamWriter sww = new StreamWriter(fss);
-       //     FileStream fso = new FileStream(path_ch1, FileMode.Append, FileAccess.Write);
-         //   StreamWriter swo = new StreamWriter(fso);
+        {    
             int changdu = from_bs_1_t.Length;
-         //   textBox2.Text += changdu;
-         //   textBox2.Text += "\r\n";
             DateTime dt = DateTime.Now;  //
             int y = 0; int yue = 0;
             int d = 0; int h = 0;
@@ -180,10 +173,11 @@ namespace WindowsFormsApp1
          //   textBox1.Text += "-";
          //   textBox1.Text += changdu;
        //     textBox1.Text += "\r\n";
-            if (from_bs_1_t.Contains("data"))
+            if (from_bs_1_t.StartsWith("data")&& from_bs_1_t.EndsWith("~"))
             {
                 int tou = from_bs_1_t.IndexOf("data");
-                from_bs_1_t = from_bs_1_t.Substring(tou, changdu-1);
+                int wei = from_bs_1_t.IndexOf("~");
+                from_bs_1_t = from_bs_1_t.Substring(tou, wei);
                 from_bs_1_t = System.Text.RegularExpressions.Regex.Replace(from_bs_1_t, "[data\r\n]", "");
                 textBox1.Text += from_bs_1_t;
                 using (FileStream fso = new FileStream(path_ch1, FileMode.Append, FileAccess.Write, FileShare.Read))
@@ -232,13 +226,13 @@ namespace WindowsFormsApp1
 
                     fss.Close();
                 }
-                   
- 
+
+                GC.Collect();
 
             }
             if (textBox1.Text.Length>3000)
             {
-                textBox1.Text = "";
+                textBox1.Clear();
             }
             /*
             sww.Close();
@@ -291,9 +285,9 @@ namespace WindowsFormsApp1
                              
             if (textBox2.Text.Length > 3000)
             {
-                textBox2.Text = "";
+                textBox2.Clear();
             }
-            
+            GC.Collect();
         }
 
         // control 
