@@ -21,8 +21,6 @@ namespace WindowsFormsApp1
         string path_ch2 = "C:\\IDIM\\channel2.txt";
         string path_ch1_others = "C:\\IDIM\\channel1_others_1.txt";
         string path_ch2_others = "C:\\IDIM\\channel2_others.txt";
-        int chang_1 = 446;
-        int chang_2 = 342;
         public Form1()
         {
             InitializeComponent();
@@ -52,7 +50,6 @@ namespace WindowsFormsApp1
             {
                 System.IO.Directory.CreateDirectory(path_data);//不存在就创建目录 
             }
-
             if (!File.Exists(@path_ch2))
             {
                 File.Create(@path_ch2).Close(); //创建该文件}
@@ -61,23 +58,19 @@ namespace WindowsFormsApp1
             {
                 File.Create(path_ch2_others).Close(); //创建该文件}
             }
-
             if (!File.Exists(@path_ch1))
             {
                 File.Create(@path_ch1).Close(); //创建该文件}
             }
-
             if (!File.Exists(path_ch1_others))
             {
                 File.Create(path_ch1_others).Close(); //创建该文件}
             }
-
         }
         private void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
             throw new NotImplementedException();
         }
-
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             throw new NotImplementedException();
@@ -225,33 +218,17 @@ namespace WindowsFormsApp1
                     }
 
                     fss.Close();
-                }
-
-                GC.Collect();
-
+                }          
             }
+            GC.Collect();
             if (textBox1.Text.Length>3000)
             {
                 textBox1.Clear();
             }
-            /*
-            sww.Close();
-            fss.Close();
-            sww.Dispose();
-            fss.Dispose();            
-            swo.Close();
-            fso.Close();
-            swo.Dispose();
-            fso.Dispose();
-            */
-
         }
         private void showdata_2(string from_bs_2_t)
-        {
-                       
+        {                      
             int changdu = from_bs_2_t.Length;
-            //   textBox2.Text += changdu;
-            //   textBox2.Text += "\r\n";
             DateTime dt = DateTime.Now;  //
             int y = 0; int yue = 0;
             int d = 0; int h = 0;
@@ -281,15 +258,13 @@ namespace WindowsFormsApp1
                     sww.Close();
                 }
                 fss.Close();
-            }
-                             
+            }                            
             if (textBox2.Text.Length > 3000)
             {
                 textBox2.Clear();
             }
             GC.Collect();
         }
-
         // control 
         private void control1_Click(object sender, EventArgs e)
         {
@@ -299,11 +274,9 @@ namespace WindowsFormsApp1
                 output = textBox3.Text;
                 COM1.Write(output);
                 textBox3.Text = "";            
-                COM1.DiscardOutBuffer();
-                        
+                COM1.DiscardOutBuffer();                      
             }
-        }
-      
+        }     
         // kill all
         private void kill_all_Click(object sender, EventArgs e)
         {

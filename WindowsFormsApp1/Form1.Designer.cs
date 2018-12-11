@@ -319,9 +319,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(560, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 17);
+            this.label2.Size = new System.Drawing.Size(149, 17);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Channel 2";
+            this.label2.Text = "Channel 2-environment";
             // 
             // textBox2
             // 
@@ -362,7 +362,7 @@
             this.groupBox3.Font = new System.Drawing.Font("3DS Fonticon CID", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(9, 345);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1001, 96);
+            this.groupBox3.Size = new System.Drawing.Size(1001, 118);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Control Window";
@@ -373,7 +373,7 @@
             this.groupBox6.Controls.Add(this.control_1);
             this.groupBox6.Location = new System.Drawing.Point(6, 17);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(984, 68);
+            this.groupBox6.Size = new System.Drawing.Size(211, 68);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Local Control";
@@ -418,7 +418,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 450);
+            this.ClientSize = new System.Drawing.Size(1016, 467);
             this.Controls.Add(this.kill_all);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
