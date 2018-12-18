@@ -41,7 +41,8 @@ namespace WindowsFormsApp1
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
-            //                      
+            //多线程//
+            Control.CheckForIllegalCrossThreadCalls = false;
             //   button12_Click(null, null);
             //   button2_Click(null, null);
             //生产必要的文件//
@@ -162,10 +163,11 @@ namespace WindowsFormsApp1
             h = dt.Hour;      //
             n = dt.Minute;    // tring logging;
             int[,] on_ff_warning = new int[2,34];
-            textBox1.Text += from_bs_1_t;
-         //   textBox1.Text += "-";
-         //   textBox1.Text += changdu;
-       //     textBox1.Text += "\r\n";
+            textBox1.Invoke(new Action(() => textBox1.Text += from_bs_1_t));
+
+            //   textBox1.Text += "-";
+            //   textBox1.Text += changdu;
+            //     textBox1.Text += "\r\n";
             if (from_bs_1_t.StartsWith("data")&& from_bs_1_t.EndsWith("~"))
             {
                 int tou = from_bs_1_t.IndexOf("data");
@@ -194,8 +196,6 @@ namespace WindowsFormsApp1
                        
                   fso.Close();
                 }                                                  
-                string[] zhongjian = from_bs_1_t.Split('/');        
-
             }
             else
             {
@@ -223,7 +223,7 @@ namespace WindowsFormsApp1
             GC.Collect();
             if (textBox1.Text.Length>3000)
             {
-                textBox1.Clear();
+                textBox1.Invoke(new Action(() => textBox1.Clear()));
             }
         }
         private void showdata_2(string from_bs_2_t)
@@ -239,7 +239,7 @@ namespace WindowsFormsApp1
             h = dt.Hour;      //
             n = dt.Minute;    // tring logging;
             int[,] on_ff_warning = new int[2, 34];
-            textBox2.Text += from_bs_2_t;                   
+            textBox2.Invoke(new Action(() => textBox2.Text += from_bs_2_t));
             using (FileStream fss = new FileStream(path_ch2_others, FileMode.Append, FileAccess.Write))
             {
                 using (StreamWriter sww = new StreamWriter(fss))
@@ -261,7 +261,7 @@ namespace WindowsFormsApp1
             }                            
             if (textBox2.Text.Length > 3000)
             {
-                textBox2.Clear();
+                textBox2.Invoke(new Action(() => textBox2.Clear()));
             }
             GC.Collect();
         }

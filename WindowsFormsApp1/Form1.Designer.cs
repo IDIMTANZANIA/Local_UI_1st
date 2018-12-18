@@ -317,7 +317,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(560, 0);
+            this.label2.Location = new System.Drawing.Point(692, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 17);
             this.label2.TabIndex = 10;
@@ -325,12 +325,12 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(493, 20);
+            this.textBox2.Location = new System.Drawing.Point(583, 20);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(497, 205);
+            this.textBox2.Size = new System.Drawing.Size(407, 205);
             this.textBox2.TabIndex = 9;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -341,7 +341,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(484, 205);
+            this.textBox1.Size = new System.Drawing.Size(574, 205);
             this.textBox1.TabIndex = 7;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
