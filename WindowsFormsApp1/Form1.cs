@@ -18,9 +18,8 @@ namespace WindowsFormsApp1
     {
         string path_data= "C:\\IDIM";
         string path_ch1 = "C:\\IDIM\\channel_1.txt";
-        string path_ch2 = "C:\\IDIM\\channel2.txt";
+        string path_ch2 = "C:\\IDIM\\environment_data.txt";
         string path_ch1_others = "C:\\IDIM\\channel1_others_1.txt";
-        string path_ch2_others = "C:\\IDIM\\channel2_others.txt";
         public Form1()
         {
             InitializeComponent();
@@ -54,10 +53,6 @@ namespace WindowsFormsApp1
             if (!File.Exists(@path_ch2))
             {
                 File.Create(@path_ch2).Close(); //创建该文件}
-            }
-            if (!File.Exists(path_ch2_others))
-            {
-                File.Create(path_ch2_others).Close(); //创建该文件}
             }
             if (!File.Exists(@path_ch1))
             {
@@ -188,7 +183,7 @@ namespace WindowsFormsApp1
                         swo.Write(h);
                         swo.Write(':');
                         swo.Write(n);
-                        swo.Write('-');
+                        swo.Write('~');
                         swo.Write(from_bs_1_t);
                         swo.Write("\r\n");
                         swo.Close();
@@ -212,8 +207,8 @@ namespace WindowsFormsApp1
                         sww.Write(h);
                         sww.Write(':');
                         sww.Write(n);
-                        sww.Write('-');
-                        sww.Write(from_bs_1_t);
+                        sww.Write('~');
+                        sww.WriteLine(from_bs_1_t);
                         sww.Close();
                     }
 
@@ -240,7 +235,7 @@ namespace WindowsFormsApp1
             n = dt.Minute;    // tring logging;
             int[,] on_ff_warning = new int[2, 34];
             textBox2.Invoke(new Action(() => textBox2.Text += from_bs_2_t));
-            using (FileStream fss = new FileStream(path_ch2_others, FileMode.Append, FileAccess.Write))
+            using (FileStream fss = new FileStream(path_ch2, FileMode.Append, FileAccess.Write))
             {
                 using (StreamWriter sww = new StreamWriter(fss))
                 {
